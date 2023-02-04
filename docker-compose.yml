@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    container_name: compiler
+    build: compiler
+    volumes:
+      - ./compiler:/go/compiler
+    tty: true
