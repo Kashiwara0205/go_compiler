@@ -2,7 +2,7 @@ package code
 
 import "testing"
 
-func testMake(t *testing.T) {
+func TestMake(t *testing.T) {
 	tests := []struct {
 		op       Opcode
 		operands []int
@@ -11,7 +11,7 @@ func testMake(t *testing.T) {
 		{
 			OpConstant,
 			[]int{65534},
-			[]byte{byte(OpConstant), 254, 254},
+			[]byte{byte(OpConstant), 255, 254},
 		},
 	}
 
