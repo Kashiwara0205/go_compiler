@@ -1,5 +1,5 @@
 in:
-	docker exec -ti go_compiler_app /bin/bash
+	docker exec -ti compiler /bin/bash
 up:
 	docker-compose up
 down:
@@ -8,6 +8,6 @@ reboot:
 	docker-compose down
 	docker-compose up
 go_test:
-	docker exec -ti go_compiler_app bash -c "go fmt ./..."
-	docker exec -ti go_compiler_app bash -c "go vet ./..."
-	docker exec -ti go_compiler_app bash -c "go test -v ./..."
+	docker exec -ti compiler bash -c "go fmt ./..."
+	docker exec -ti compiler bash -c "go vet ./..."
+	docker exec -ti compiler bash -c "go test -v ./..."
