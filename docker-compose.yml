@@ -1,8 +1,8 @@
 version: '3'
 services:
   app:
-    container_name: compiler
-    build: compiler
+    container_name: monkey
+    build: monkey
     volumes:
-      - ./compiler:/go/compiler
+      - ./monkey:/go/monkey
     tty: true

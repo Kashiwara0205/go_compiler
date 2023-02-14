@@ -2,7 +2,7 @@ package ast
 
 import (
 	"bytes"
-	"compiler/token"
+	"monkey/token"
 	"strings"
 )
 

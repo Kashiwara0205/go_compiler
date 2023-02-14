@@ -2,9 +2,9 @@ package object
 
 import (
 	"bytes"
-	"compiler/ast"
 	"fmt"
 	"hash/fnv"
+	"monkey/ast"
 	"strings"
 )
 
