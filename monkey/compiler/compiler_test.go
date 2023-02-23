@@ -23,12 +23,12 @@ func testInstructions(
 	concatted := concatInstructions(expected)
 
 	if len(actual) != len(concatted) {
-		return fmt.Errorf("wrong instructions length. \nwant=%q\ngot = %q", concatted, actual)
+		return fmt.Errorf("wrong instructions length. \nwant=%q\ngot=%q", concatted, actual)
 	}
 
 	for i, ins := range concatted {
 		if actual[i] != ins {
-			return fmt.Errorf("wrong instruction at %d.\nwant=%q\ngot = %q", i, concatted, actual)
+			return fmt.Errorf("wrong instruction at %d.\nwant=%q\ngot=%q", i, concatted, actual)
 		}
 	}
 
@@ -61,7 +61,7 @@ func testConstants(
 func testIntegerObject(expected int64, actual object.Object) error {
 	result, ok := actual.(*object.Integer)
 	if !ok {
-		return fmt.Errorf("object is not Integer. got %T (%+v)", actual, actual)
+		return fmt.Errorf("object is not Integer. got=%T (%+v)", actual, actual)
 	}
 
 	if result.Value != expected {
