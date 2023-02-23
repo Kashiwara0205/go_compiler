@@ -39,6 +39,8 @@ func (ins Instructions) fmtInstuction(def *Definition, operands []int) string {
 	}
 
 	switch operandCount {
+	case 0:
+		return def.Name
 	case 1:
 		return fmt.Sprintf("%s %d", def.Name, operands[0])
 	}
