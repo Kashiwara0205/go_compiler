@@ -1,6 +1,8 @@
 package code
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestReardOperands(t *testing.T) {
 	tests := []struct {
@@ -72,6 +74,11 @@ func TestMake(t *testing.T) {
 			OpConstant,
 			[]int{65534},
 			[]byte{byte(OpConstant), 255, 254},
+		},
+		{
+			OpAdd,
+			[]int{},
+			[]byte{byte(OpAdd)},
 		},
 	}
 
