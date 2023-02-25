@@ -11,3 +11,5 @@ go_test:
 	docker exec -ti monkey bash -c "go fmt ./..."
 	docker exec -ti monkey bash -c "go vet ./..."
 	docker exec -ti monkey bash -c "go test -v ./..."
+repl:
+	docker exec -ti monkey bash -c "go build -o monkey . && ./monkey"
