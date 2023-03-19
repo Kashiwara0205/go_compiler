@@ -33,6 +33,12 @@ func New(bytecode *compiler.Bytecode) *VM {
 	}
 }
 
+func NewWithGlobalsStore(bytecode *compiler.Bytecode, s []object.Object) *VM {
+	vm := New(bytecode)
+	vm.globals = s
+	return vm
+}
+
 func nativeBooleanToBoolObject(input bool) *object.Boolean {
 	if input {
 		return True
@@ -144,14 +150,6 @@ func (vm *VM) executeComparison(op code.Opcode) error {
 		return fmt.Errorf("unknown operator: %d (%s %s)",
 			op, left.Type(), right.Type())
 	}
-}
-
-func (vm *VM) StackTop() object.Object {
-	if vm.sp == 0 {
-		return nil
-	}
-
-	return vm.stack[vm.sp-1]
 }
 
 func isTruthy(obj object.Object) bool {
