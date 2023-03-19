@@ -150,6 +150,11 @@ func (c *Compiler) Compile(node ast.Node) error {
 			return fmt.Errorf("Unknown operator %s", node.Operator)
 		}
 
+	case *ast.LetStatement:
+		err := c.Compile(node.Value)
+		if err != nil {
+			return err
+		}
 	case *ast.Boolean:
 		if node.Value {
 			c.emit(code.OpTrue)
