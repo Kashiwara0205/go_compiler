@@ -273,7 +273,7 @@ func (c *Compiler) Compile(node ast.Node) error {
 			return err
 		}
 
-		symbol := c.symbolTable.Definition(node.Name.Value)
+		symbol := c.symbolTable.Define(node.Name.Value)
 		c.emit(code.OpSetGlobal, symbol.Index)
 	case *ast.Identifier:
 		symbol, ok := c.symbolTable.Resolve(node.Value)
